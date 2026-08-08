@@ -23,6 +23,9 @@ jobs:
         run: |
           mkdir dist
           cp portfolio.html dist/index.html
+          cp impressum.html dist/impressum.html
+          cp datenschutz.html dist/datenschutz.html
+          cp -r assets dist/assets
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

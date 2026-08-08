@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VEKTOR — Portfolio</title>
+<title>Gerrit Green – Atelier53</title>
 <meta name="description" content="Geometrische Musterentwürfe als Teppich, T-Shirt, Wandbild und Grafik-Datei.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
+  [hidden]{display:none!important;}
   body{
     background:var(--bg);
     color:var(--ink);
@@ -46,12 +47,18 @@
   .navbar{
     max-width:1160px;margin:0 auto;padding:18px 28px;
     display:flex;align-items:center;justify-content:space-between;
+    gap:20px;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.02em;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:.01em;white-space:nowrap;}
   .brand .mark{width:22px;height:22px;flex:0 0 auto;}
+  .navright{display:flex;align-items:center;gap:24px;}
   nav ul{list-style:none;display:flex;gap:28px;}
   nav a{font-size:13px;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--muted);transition:color .15s;}
   nav a:hover{color:var(--ink);}
+  .langsw{display:flex;gap:4px;flex:0 0 auto;}
+  .lang-btn{font-family:var(--head-font);font-size:11px;font-weight:700;letter-spacing:.05em;background:none;border:1px solid var(--line);border-radius:20px;padding:5px 10px;cursor:pointer;color:var(--muted);transition:.15s;}
+  .lang-btn:hover{border-color:var(--ink);color:var(--ink);}
+  .lang-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink);}
 
   /* ---------- hero ---------- */
   #hero{padding-top:72px;}
@@ -133,7 +140,10 @@
   .social{display:flex;gap:24px;}
   .social a{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-decoration:none;}
   .social a:hover{color:var(--ink);}
-  footer{padding:28px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:8px;}
+  footer{padding:28px 0;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;flex-wrap:wrap;gap:12px;}
+  .footer-links{display:flex;gap:18px;}
+  .footer-links a{color:var(--muted);text-decoration:none;}
+  .footer-links a:hover{color:var(--ink);text-decoration:underline;}
 
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;}
@@ -148,6 +158,7 @@
     .forms{grid-template-columns:1fr;}
     section{padding:64px 0;}
     nav ul{display:none;}
+    footer{justify-content:flex-start;}
   }
 </style>
 </head>
@@ -185,15 +196,21 @@
   <div class="navbar">
     <a class="brand" href="#hero">
       <svg class="mark" viewBox="0 0 24 24"><rect x="1" y="1" width="10" height="10" fill="#15150f"/><circle cx="17" cy="6" r="6" fill="#ff5a2e"/><polygon points="1,23 12,12 23,23" fill="#15150f"/></svg>
-      VEKTOR
+      Gerrit Green – Atelier53
     </a>
-    <nav>
-      <ul>
-        <li><a href="#work">Arbeiten</a></li>
-        <li><a href="#about">Über</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
+    <div class="navright">
+      <nav>
+        <ul>
+          <li><a href="#work"><span lang="de">Arbeiten</span><span lang="en" hidden>Work</span></a></li>
+          <li><a href="#about"><span lang="de">Über</span><span lang="en" hidden>About</span></a></li>
+          <li><a href="#contact"><span lang="de">Kontakt</span><span lang="en" hidden>Contact</span></a></li>
+        </ul>
+      </nav>
+      <div class="langsw" role="group" aria-label="Sprache / Language">
+        <button class="lang-btn" data-lang="de" type="button">DE</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -202,13 +219,19 @@
   <section id="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="kicker">Studio für geometrische Muster</p>
-        <h1>Ein Muster.<br><em>Vier</em> Formen.</h1>
-        <p>Drei eigenständige Vektor-Entwürfe — jeder gedacht als Teppich, T-Shirt, Wandbild und druckfertige Grafik-Datei.</p>
+        <p class="kicker"><span lang="de">Studio für geometrische Muster</span><span lang="en" hidden>Studio for geometric patterns</span></p>
+        <h1>
+          <span lang="de">Ein Muster.<br><em>Vier</em> Formen.</span>
+          <span lang="en" hidden>One pattern.<br><em>Four</em> shapes.</span>
+        </h1>
+        <p>
+          <span lang="de">Drei eigenständige Vektor-Entwürfe — jeder gedacht als Teppich, T-Shirt, Wandbild und druckfertige Grafik-Datei.</span>
+          <span lang="en" hidden>Three original vector designs — each imagined as a rug, t-shirt, wall art, and print-ready graphic file.</span>
+        </p>
         <div class="hero-meta">
-          <div><div class="num">03</div><div class="lbl">Muster</div></div>
-          <div><div class="num">04</div><div class="lbl">Ausprägungen</div></div>
-          <div><div class="num">01</div><div class="lbl">Idee</div></div>
+          <div><div class="num">03</div><div class="lbl"><span lang="de">Muster</span><span lang="en" hidden>Patterns</span></div></div>
+          <div><div class="num">04</div><div class="lbl"><span lang="de">Ausprägungen</span><span lang="en" hidden>Forms</span></div></div>
+          <div><div class="num">01</div><div class="lbl"><span lang="de">Idee</span><span lang="en" hidden>Idea</span></div></div>
         </div>
       </div>
       <div class="hero-graphic">
@@ -225,18 +248,24 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="kicker">Arbeiten</p>
-          <h2>Drei Muster, vier Ausprägungen</h2>
+          <p class="kicker"><span lang="de">Arbeiten</span><span lang="en" hidden>Work</span></p>
+          <h2><span lang="de">Drei Muster, vier Ausprägungen</span><span lang="en" hidden>Three patterns, four forms</span></h2>
         </div>
-        <p>Jedes Muster ist material-unabhängig entworfen: dieselbe Vektorgrafik, konsequent auf Teppich, T-Shirt, Wandbild und Datei übertragen.</p>
+        <p>
+          <span lang="de">Jedes Muster ist material-unabhängig entworfen: dieselbe Vektorgrafik, konsequent auf Teppich, T-Shirt, Wandbild und Datei übertragen.</span>
+          <span lang="en" hidden>Each pattern is designed independent of material: the same vector graphic, carried consistently across rug, t-shirt, wall art, and file.</span>
+        </p>
       </div>
 
       <!-- Piece 01 -->
       <article class="piece">
         <div class="piece-head">
           <span class="idx">01</span>
-          <h3>Raster</h3>
-          <span class="desc">Punktraster in zwei Größen, ein Akzentpunkt pro Fläche.</span>
+          <h3><span lang="de">Raster</span><span lang="en" hidden>Grid</span></h3>
+          <span class="desc">
+            <span lang="de">Punktraster in zwei Größen, ein Akzentpunkt pro Fläche.</span>
+            <span lang="en" hidden>Dot grid in two sizes, one accent dot per tile.</span>
+          </span>
         </div>
         <div class="forms">
           <div class="form-card">
@@ -247,7 +276,7 @@
                 <div class="fringe"></div>
               </div>
             </div>
-            <div class="form-label"><b>Teppich</b><span>140×200</span></div>
+            <div class="form-label"><b><span lang="de">Teppich</span><span lang="en" hidden>Rug</span></b><span>140×200</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
@@ -256,19 +285,19 @@
                 <path d="M30,18 L10,28 L19,45 L30,36 L30,93 L70,93 L70,36 L81,45 L90,28 L70,18 L57.5,18 L50,26 L42.5,18 Z" fill="none" stroke="#15150f" stroke-width="1.6"/>
               </svg>
             </div>
-            <div class="form-label"><b>T-Shirt</b><span>Unisex</span></div>
+            <div class="form-label"><b>T-Shirt</b><span><span lang="de">Unisex</span><span lang="en" hidden>Unisex</span></span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
               <div class="frame-outer"><div class="frame-mat"><div class="frame-canvas"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="url(#pRaster)"/></svg><span class="nail"></span></div></div></div>
             </div>
-            <div class="form-label"><b>Wandbild</b><span>50×70</span></div>
+            <div class="form-label"><b><span lang="de">Wandbild</span><span lang="en" hidden>Wall Art</span></b><span>50×70</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
               <div class="filecard"><div class="fold"></div><div class="swatch"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="url(#pRaster)"/></svg></div><span class="ext">.SVG</span></div>
             </div>
-            <div class="form-label"><b>Grafik-Datei</b><span>Vektor</span></div>
+            <div class="form-label"><b><span lang="de">Grafik-Datei</span><span lang="en" hidden>Graphic File</span></b><span><span lang="de">Vektor</span><span lang="en" hidden>Vector</span></span></div>
           </div>
         </div>
       </article>
@@ -278,7 +307,10 @@
         <div class="piece-head">
           <span class="idx">02</span>
           <h3>Fragment</h3>
-          <span class="desc">Zwei diagonal geteilte Dreiecksflächen, hart geschnitten.</span>
+          <span class="desc">
+            <span lang="de">Zwei diagonal geteilte Dreiecksflächen, hart geschnitten.</span>
+            <span lang="en" hidden>Two diagonally split triangular fields, cut sharp.</span>
+          </span>
         </div>
         <div class="forms">
           <div class="form-card">
@@ -289,7 +321,7 @@
                 <div class="fringe"></div>
               </div>
             </div>
-            <div class="form-label"><b>Teppich</b><span>140×200</span></div>
+            <div class="form-label"><b><span lang="de">Teppich</span><span lang="en" hidden>Rug</span></b><span>140×200</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
@@ -304,13 +336,13 @@
             <div class="form-stage">
               <div class="frame-outer"><div class="frame-mat"><div class="frame-canvas"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="url(#pFragment)"/></svg><span class="nail"></span></div></div></div>
             </div>
-            <div class="form-label"><b>Wandbild</b><span>50×70</span></div>
+            <div class="form-label"><b><span lang="de">Wandbild</span><span lang="en" hidden>Wall Art</span></b><span>50×70</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
               <div class="filecard"><div class="fold"></div><div class="swatch"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="url(#pFragment)"/></svg></div><span class="ext">.AI</span></div>
             </div>
-            <div class="form-label"><b>Grafik-Datei</b><span>Vektor</span></div>
+            <div class="form-label"><b><span lang="de">Grafik-Datei</span><span lang="en" hidden>Graphic File</span></b><span><span lang="de">Vektor</span><span lang="en" hidden>Vector</span></span></div>
           </div>
         </div>
       </article>
@@ -319,8 +351,11 @@
       <article class="piece">
         <div class="piece-head">
           <span class="idx">03</span>
-          <h3>Kontur</h3>
-          <span class="desc">Diagonale Streifen, 45°, mit schmalem Akzentband.</span>
+          <h3><span lang="de">Kontur</span><span lang="en" hidden>Outline</span></h3>
+          <span class="desc">
+            <span lang="de">Diagonale Streifen, 45°, mit schmalem Akzentband.</span>
+            <span lang="en" hidden>Diagonal stripes at 45°, with a narrow accent band.</span>
+          </span>
         </div>
         <div class="forms">
           <div class="form-card">
@@ -331,7 +366,7 @@
                 <div class="fringe"></div>
               </div>
             </div>
-            <div class="form-label"><b>Teppich</b><span>140×200</span></div>
+            <div class="form-label"><b><span lang="de">Teppich</span><span lang="en" hidden>Rug</span></b><span>140×200</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
@@ -346,13 +381,13 @@
             <div class="form-stage">
               <div class="frame-outer"><div class="frame-mat"><div class="frame-canvas"><svg viewBox="0 0 100 100"><rect width="100" height="100" fill="url(#pKontur)"/></svg><span class="nail"></span></div></div></div>
             </div>
-            <div class="form-label"><b>Wandbild</b><span>50×70</span></div>
+            <div class="form-label"><b><span lang="de">Wandbild</span><span lang="en" hidden>Wall Art</span></b><span>50×70</span></div>
           </div>
           <div class="form-card">
             <div class="form-stage">
               <div class="filecard"><div class="fold"></div><div class="swatch"><svg viewBox="0 0 40 40"><rect width="40" height="40" fill="url(#pKontur)"/></svg></div><span class="ext">.PDF</span></div>
             </div>
-            <div class="form-label"><b>Grafik-Datei</b><span>Vektor</span></div>
+            <div class="form-label"><b><span lang="de">Grafik-Datei</span><span lang="en" hidden>Graphic File</span></b><span><span lang="de">Vektor</span><span lang="en" hidden>Vector</span></span></div>
           </div>
         </div>
       </article>
@@ -364,14 +399,22 @@
     <div class="wrap about-grid">
       <div class="about-num">01</div>
       <div>
-        <p class="kicker">Über</p>
-        <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-top:10px;">Ein Muster für jede Fläche</h2>
-        <p style="margin-top:22px;">VEKTOR entwirft geometrische Muster, die unabhängig vom Träger funktionieren — ob gewebt, bedruckt, gerahmt oder als Datei geöffnet. Jede Grafik entsteht digital, im rechten Winkel, mit wenigen Farben und klaren Flächen.</p>
-        <p>Keine Fotografie, keine Verläufe, keine Effekte — nur Form, Fläche und Wiederholung.</p>
+        <p class="kicker"><span lang="de">Über</span><span lang="en" hidden>About</span></p>
+        <h2 style="font-size:clamp(26px,3vw,36px);font-weight:700;margin-top:10px;">
+          <span lang="de">Ein Muster für jede Fläche</span><span lang="en" hidden>One pattern for every surface</span>
+        </h2>
+        <p style="margin-top:22px;">
+          <span lang="de">Atelier53 entwirft geometrische Muster, die unabhängig vom Träger funktionieren — ob gewebt, bedruckt, gerahmt oder als Datei geöffnet. Jede Grafik entsteht digital, im rechten Winkel, mit wenigen Farben und klaren Flächen.</span>
+          <span lang="en" hidden>Atelier53 designs geometric patterns that work independent of their carrier — whether woven, printed, framed, or opened as a file. Every graphic is created digitally, at right angles, with a few colors and clear shapes.</span>
+        </p>
+        <p>
+          <span lang="de">Keine Fotografie, keine Verläufe, keine Effekte — nur Form, Fläche und Wiederholung.</span>
+          <span lang="en" hidden>No photography, no gradients, no effects — just form, surface, and repetition.</span>
+        </p>
         <ul class="about-list">
-          <li><b>Format</b><span>SVG · AI · PDF</span></li>
-          <li><b>Umsetzung</b><span>Teppich, Textil, Print, Digital</span></li>
-          <li><b>Farben</b><span>Zwei pro Muster</span></li>
+          <li><b><span lang="de">Format</span><span lang="en" hidden>Format</span></b><span>SVG · AI · PDF</span></li>
+          <li><b><span lang="de">Umsetzung</span><span lang="en" hidden>Application</span></b><span><span lang="de">Teppich, Textil, Print, Digital</span><span lang="en" hidden>Rug, Textile, Print, Digital</span></span></li>
+          <li><b><span lang="de">Farben</span><span lang="en" hidden>Colors</span></b><span><span lang="de">Zwei pro Muster</span><span lang="en" hidden>Two per pattern</span></span></li>
         </ul>
       </div>
     </div>
@@ -381,12 +424,12 @@
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="kicker">Kontakt</p>
-          <h2>Ein Muster in Auftrag geben</h2>
+          <p class="kicker"><span lang="de">Kontakt</span><span lang="en" hidden>Contact</span></p>
+          <h2><span lang="de">Ein Muster in Auftrag geben</span><span lang="en" hidden>Commission a pattern</span></h2>
         </div>
       </div>
       <div class="contact-row">
-        <a class="mail-link" href="mailto:hallo@studio-vektor.de">hallo@studio-vektor.de</a>
+        <a class="mail-link" href="mailto:Gerritgreen@web.de">Gerritgreen@web.de</a>
         <div class="social">
           <a href="#">Instagram</a>
           <a href="#">Behance</a>
@@ -399,9 +442,36 @@
 </main>
 
 <footer class="wrap">
-  <span>© 2026 Studio Vektor</span>
-  <span>Geometrische Muster · Made with vectors</span>
+  <span>© 2026 Gerrit Green – Atelier53</span>
+  <span class="footer-links">
+    <a href="impressum.html"><span lang="de">Impressum</span><span lang="en" hidden>Imprint</span></a>
+    <a href="datenschutz.html"><span lang="de">Datenschutz</span><span lang="en" hidden>Privacy Policy</span></a>
+  </span>
+  <span>
+    <span lang="de">Geometrische Muster, digital gestaltet</span>
+    <span lang="en" hidden>Geometric patterns, designed digitally</span>
+  </span>
 </footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[lang]').forEach(function(el){
+      if (el === document.documentElement) return;
+      el.hidden = el.getAttribute('lang') !== lang;
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try { localStorage.setItem('vektor-lang', lang); } catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+  });
+  var saved = 'de';
+  try { saved = localStorage.getItem('vektor-lang') || 'de'; } catch(e){}
+  setLang(saved);
+</script>
 
 </body>
 </html>
